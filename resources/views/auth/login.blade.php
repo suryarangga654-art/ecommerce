@@ -93,7 +93,7 @@ ditampilkan di @yield('content') --}}
                 Login
               </button>
             </div>
-
+         
             {{-- ================== LINK LUPA PASSWORD ================== --}}
             <div class="mt-3 text-center">
               @if (Route::has('password.request'))
@@ -111,7 +111,7 @@ ditampilkan di @yield('content') --}}
             ================== --}} {{-- Tombol ini akan diaktifkan di Hari 4
             --}}
             <div class="d-grid gap-2">
-              <a href="#" class="btn btn-outline-danger">
+              <a href="{{ url('auth/google') }}" class="btn btn-outline-danger">
                 <img
                   src="https://www.svgrepo.com/show/475656/google-color.svg"
                   width="20"

@@ -4,6 +4,7 @@
 // FUNGSI: Mendefinisikan semua URL route aplikasi
 // ========================================
 
+use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProfileController;
@@ -65,5 +66,11 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/profile', [ProfileController::class, 'update'])
         ->name('profile.update');
+});
+Route::controller(GoogleController::class)->group(function () {
+      Route::get('/auth/google', 'redirect')
+        ->name('auth.google');
+        Route::get('/auth/google/callback', 'callback')
+        ->name('auth.google.callback');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
