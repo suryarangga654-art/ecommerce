@@ -81,6 +81,7 @@ class LoginController extends Controller
             'email.email'    => 'Format email tidak valid (harus ada @).',
             'password.required' => 'Password wajib diisi.',
             'password.min'   => 'Password minimal 6 karakter.',
+            
         ]);
     }
 }
