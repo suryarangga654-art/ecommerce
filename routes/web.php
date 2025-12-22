@@ -3,11 +3,16 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Admin\ProfileController as ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,8 +50,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::delete('/profile/avatar', [ProfileController::class, 'deleteAvatar'])->name('profile.avatar.destroy');
     Route::put('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
+   
 
 });
+Route::middleware('auth')->group(function () {
+     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])
+    ->name('register'); 
+
+    Route::post('/register', [RegisterController::class, 'register']);
+});
+
 
 // ================================================
 // ROUTE KHUSUS ADMIN
@@ -68,12 +81,12 @@ Route::middleware(['auth', 'admin'])
         // ↑ URL: /admin/dashboard
 
         // CRUD Produk: /admin/products, /admin/products/create, dll
-        Route::resource('/products', ProductController::class);
+   
         // Produk CRUD
-        Route::resource('products', AdminProductController::class);
+        Route::resource('/products', AdminProductController::class);
 
         // Kategori CRUD
-        Route::resource('categories', AdminCategoryController::class);
+        Route::resource('categories', CategoryController::class); 
 
         // Manajemen Pesanan
         Route::get('/orders', [AdminOrderController::class, 'index'])->name('orders.index');
