@@ -20,6 +20,7 @@ return new class extends Migration
     $table->decimal('price', 12, 2); // Simpan harga SAAT transaksi, bukan relasi ke harga produk sekarang
     $table->decimal('subtotal', 12, 2); // quantity * price
 
+     $table->string('snap_token')->nullable();
     $table->timestamps();
 });
         

@@ -30,14 +30,17 @@ return new class extends Migration
     $table->decimal('shipping_cost', 12, 2)->default(0);
 
     // Midtrans Snap Token
-    $table->string('snap_token')->nullable();
+   
 
-    $table->timestamps();
+   
 
             
             $table->index('order_number');
             $table->index('status');
             $table->index('created_at');
+             $table->string('snap_token')->nullable();
+
+             $table->timestamps();
         });
     }
 
