@@ -15,6 +15,7 @@
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Home</span>
+                <span class="hide-menu">Admin Menu</span>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="{{route('admin.dashboard')}}" aria-expanded="false">
@@ -25,14 +26,6 @@
               </a>
             </li>
              <li class="sidebar-item">
-              <a class="sidebar-link" href="{{route('admin.products.index')}}" aria-expanded="false">
-                <span>
-                  <i class="ti ti-layout-dashboard"></i>
-                </span>
-                <span class="hide-menu">Product</span>
-              </a>
-            </li>
-             <li class="sidebar-item">
               <a class="sidebar-link" href="{{route('admin.categories.index')}}" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
@@ -40,7 +33,22 @@
                 <span class="hide-menu">Category</span>
               </a>
             </li>
-            
+              <li class="sidebar-item">
+                 <a class="sidebar-link" href="/admin/products" aria-expanded="false">
+                     <span>
+                         <i class="ti ti-package"></i>
+                         </span>
+                    <span class="hide-menu">Produk</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                      <a class="sidebar-link" href="/admin/orders" aria-expanded="false">
+                        <span>
+                           <i class="ti ti-receipt"></i>
+                        </span>
+                         <span class="hide-menu">Pesanan</span>
+                    </a>
+                </li>
           </ul>
           <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
             <div class="d-flex">
