@@ -49,6 +49,14 @@
                          <span class="hide-menu">Pesanan</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                      <a class="sidebar-link" href="{{route('admin.reports.sales')}}" aria-expanded="false">
+                        <span>
+                           <i class="ti ti-report-money"></i>
+                        </span>
+                         <span class="hide-menu">Laporan Penjualan</span>
+                    </a>
+                </li>
           </ul>
           <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
             <div class="d-flex">

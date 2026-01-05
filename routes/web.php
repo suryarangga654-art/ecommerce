@@ -7,6 +7,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogController;
@@ -74,12 +75,17 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
         // Update status pesanan
         Route::patch('/orders/{order}/update-status', [\App\Http\Controllers\Admin\OrderController::class, 'updateStatus'])->name('orders.update-status');
     // Dashboard
+  
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     // Kategori CRUD
     Route::resource('categories', CategoryController::class);
-    // Produk CRUD
+    // Produk CRUDa
     Route::resource('products', ProductController::class);
+
+    
+
+    Route::resource('reports', \App\Http\Controllers\Admin\ReportController::class)->only(['index', 'sales']);
 
     // Manajemen Pesanan
     Route::get('/orders/{order}/pay', [PaymentController::class, 'show'])
