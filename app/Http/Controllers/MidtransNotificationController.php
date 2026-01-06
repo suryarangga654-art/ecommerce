@@ -243,10 +243,7 @@ class MidtransNotificationController extends Controller
 
 private function setSuccess(Order $order)
 {
-    $order->update([
-        'status' => 'processing',
-        'payment_status' => 'paid',
-    ]);
+    $order->update([]);
 
     // Fire & Forget
     event(new OrderPaidEvent($order));

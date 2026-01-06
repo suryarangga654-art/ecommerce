@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
 
-class SendOrderPaidEmail  implements ShouldQueue 
+class SendOrderPaidEmail  
 {
     /**
      * Create the event listener.
@@ -27,5 +27,6 @@ class SendOrderPaidEmail  implements ShouldQueue
     {
           Mail::to($event->order->user->email)
             ->send(new OrderPaid($event->order));
+
     }
 }
