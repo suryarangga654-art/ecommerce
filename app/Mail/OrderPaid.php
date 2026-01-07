@@ -41,7 +41,7 @@ class OrderPaid extends Mailable
         return new Content(
             // Menggunakan Markdown view
             // Lokasi: resources/views/emails/orders/paid.blade.php
-           markdown: 'emails.orders.paid',
+            markdown: 'emails.orders.paid',
         );
     }
 }

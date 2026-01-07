@@ -1,3 +1,10 @@
+<style>
+    .chart-container {
+        position: relative;
+        height: 300px; /* Atur tinggi sesuai kebutuhan */
+    }
+</style>
+
 @extends('layouts.admin')
 
 @section('title', 'Dashboard')
@@ -91,7 +98,9 @@
                     <h5 class="card-title mb-0">Grafik Penjualan (7 Hari)</h5>
                 </div>
                 <div class="card-body">
+                    <div class="chart-container">
                     <canvas id="revenueChart" height="100"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
