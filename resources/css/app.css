@@ -1,82 +1,114 @@
 /* ================================================
    FILE: resources/css/app.css
-   FUNGSI: Entry point untuk semua CSS
+   HIJAB SHOP EDITION - Elegant & Soft
    ================================================ */
 
-/* Import Bootstrap CSS */
-/* Kita import di sini agar ikut ter-compile oleh Vite dan bisa di-minify saat production */
 @import "bootstrap/dist/css/bootstrap.min.css";
-
-/* Import Bootstrap Icons */
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
-/* ================================================
-   CUSTOM STYLES - Variabel dan Override
-   ================================================ */
+/* Font: Playfair Display untuk kesan mewah, Montserrat untuk navigasi */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap');
 
 :root {
-  /* Warna Brand Toko */
-  --primary-color: #4f46e5; /* Indigo */
-  --secondary-color: #10b981; /* Emerald */
-  --accent-color: #f59e0b; /* Amber */
-
-  /* Warna Text */
-  --text-dark: #1f2937;
-  --text-muted: #6b7280;
-  --text-light: #9ca3af;
-}
-
-/* Override Bootstrap Primary */
-.btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-}
-
-.btn-primary:hover {
-  background-color: #4338ca;
-  border-color: #4338ca;
+  /* Palette: Dusty Rose & Warm Sand */
+  --primary-color: #b5838d;    /* Dusty Rose */
+  --secondary-color: #e5989b;  /* Soft Pink */
+  --accent-color: #6d6875;     /* Muted Purple */
+  --bg-creme: #fffaf9;         /* Off White Soft */
+  --text-main: #4a4a4a;
 }
 
 /* ================================================
-   LAYOUT STYLES
+   BASE STYLES
    ================================================ */
 
 body {
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
-  color: var(--text-dark);
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-creme);
+  color: var(--text-main);
 }
 
-/* Navbar Custom */
+h1, h2, h3, .navbar-brand {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ================================================
+   COMPONENTS UPGRADE
+   ================================================ */
+
+/* Button: Soft & Rounded */
+.btn-primary {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 12px 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 50px; /* Sangat bulat agar terlihat lembut */
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(181, 131, 141, 0.2);
+}
+
+/* Navbar: Minimalist & Clean */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-bottom: 1px solid #f0e4e4;
+}
+
 .navbar-brand {
-  font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  color: var(--primary-color) !important;
 }
 
-/* Footer */
-footer {
-  background-color: #1f2937;
-  color: #fff;
-}
-
-/* Card Produk */
+/* Card Produk: Aesthetic Look */
 .product-card {
-  transition: transform 0.2s, box-shadow 0.2s;
+  border: none;
+  border-radius: 15px;
+  background: #ffffff;
+  overflow: hidden;
+  transition: all 0.4s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px rgba(109, 104, 117, 0.1);
 }
 
-/* Badge Diskon */
+/* Efek Overlay saat Foto Hijab di-hover */
+.product-img-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card img {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Badge Diskon: Minimalist Tag */
 .badge-discount {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #ef4444;
+  top: 15px;
+  right: 15px; /* Pindah ke kanan agar lebih balance */
+  background: var(--secondary-color);
   color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.75rem;
+  padding: 5px 15px;
+  border-radius: 20px 0 20px 0; /* Bentuk kelopak bunga */
+  font-size: 0.8rem;
   font-weight: 600;
+}
+
+/* Footer: Warm & Cozy */
+footer {
+  background-color: #f7ede2;
+  color: var(--accent-color);
+  padding: 50px 0;
+  border-top: 2px solid #f0e4e4;
 }

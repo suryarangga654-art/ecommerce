@@ -34,8 +34,9 @@ class ProductController extends Controller
             })
         // Filter: Berdasarkan Kategori
             ->when($request->category, function ($query, $categoryId) {
-                $query->where('category_id', $categoryId);
-            })
+    $query->inCategory((int) $categoryId);
+})
+
             ->latest()           // Urut dari yang terbaru
             ->paginate(15)       // Batasi 15 item per halaman
             ->withQueryString(); // Memastikan parameter URL (?search=xx) tetap ada saat pindah halaman

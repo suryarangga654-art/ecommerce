@@ -84,6 +84,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('categories', CategoryController::class);
     // Produk CRUDa
     Route::resource('products', ProductController::class);
+    Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
+});
+
 
     
 

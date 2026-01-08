@@ -204,4 +204,9 @@ class Product extends Model
     {
         return $query->whereBetween('price', [$min, $max]);
     }
+    public function scopeInCategory($query, int $categoryId)
+{
+    return $query->where('category_id', $categoryId);
+}
+
 }
