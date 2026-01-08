@@ -112,3 +112,18 @@ footer {
   padding: 50px 0;
   border-top: 2px solid #f0e4e4;
 }
+/* Warna default (kosong) */
+.btn-wishlist i {
+    color: #ccc; 
+    transition: all 0.3s ease;
+}
+
+/* Warna saat diklik/aktif (merah) */
+.btn-wishlist.active i {
+    color: #e63946 !important;
+}
+
+/* Animasi sedikit saat diklik */
+.btn-wishlist:active {
+    transform: scale(1.2);
+}

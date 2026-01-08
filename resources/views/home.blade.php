@@ -4,43 +4,81 @@
 
 @section('content')
     <style>
-        /* Animasi naik turun pelan */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); } /* Naik 20px */
-            100% { transform: translateY(0px); }
-        }
+    /* Container Utama untuk Hero */
+    .hero-video-container {
+        position: relative;
+        height: 80vh; 
+        min-height: 500px;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        background: #222; /* Warna cadangan jika video gagal load */
+    }
 
-        .img-floating {
-            animation: float 5s ease-in-out infinite; /* 5 detik supaya pelan */
-        }
-    </style>
+    /* Styling Video agar Full Screen di dalam Container */
+    .bg-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: 0;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+        opacity: 0.5; /* Gelapkan sedikit video agar teks lebih menonjol */
+    }
 
-    {{-- Hero Section --}}
-    <section class="bg-light py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-5 fw-bold text-dark mb-3">
-                        Koleksi Hijab Terbaik <br>untuk Anda
-                    </h1>
-                    <p class="lead text-muted mb-4">
-                        Temukan produk hijab berkualitas dengan harga terbaik.
-                        Gratis ongkir untuk pembelian pertama!
-                    </p>
-                    <a href="{{ route('catalog.index') }}" class="btn btn-dark btn-lg px-4">
-                        Mulai Belanja
-                    </a>
-                </div>
-                <div class="col-lg-6 d-none d-lg-block text-center">
-                    {{-- Tambahkan class img-floating di bawah ini --}}
-                    <img src="{{ asset('assets/images/hijab.JPG') }}" 
-                         class="img-fluid rounded shadow-sm img-floating" 
-                         style="max-height:350px; object-fit: cover; border: 5px solid white;">
-                </div>
+    /* Konten di atas video */
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+    }
+
+    .img-floating {
+        animation: float 5s ease-in-out infinite;
+    }
+</style>
+
+<section class="hero-video-container">
+    {{-- Video Background --}}
+    <video autoplay muted loop playsinline class="bg-video">
+        {{-- Pastikan nama file di bawah ini SAMA dengan yang kamu simpan di folder public --}}
+        <source src="{{ asset('assets/images/video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container hero-content">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-white"> 
+                <h1 class="display-4 fw-bold mb-3">
+                    Koleksi Hijab Terbaik <br>untuk Anda
+                </h1>
+                <p class="lead mb-4">
+                    Temukan produk hijab berkualitas dengan harga terbaik.
+                    Gratis ongkir untuk pembelian pertama!
+                </p>
+                <a href="{{ route('catalog.index') }}" class="btn btn-light btn-lg px-5 shadow-lg fw-bold">
+                    Mulai Belanja
+                </a>
+            </div>
+            
+            <div class="col-lg-6 d-none d-lg-block text-center">
+                <img src="{{ asset('assets/images/Logo.JPG') }}" 
+                     class="img-fluid rounded shadow-lg img-floating" 
+                     style="max-height:380px; object-fit: cover; border: 8px solid rgba(255,255,255,0.2);">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     {{-- Kategori --}}
     <section class="py-5">
