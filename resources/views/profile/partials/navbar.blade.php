@@ -6,7 +6,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container">
         {{-- Logo & Brand --}}
-        <a class="navbar-brand text-darkef="{{ route('home') }}">
+        <a class="navbar-brand text-darkef=" href="{{ route('home') }}">
             <i class="bi bi-bag-heart-fill me-2"></i>
              Hijab Shop faizal
         </a>
@@ -34,13 +34,20 @@
                 </div>
             </form>
         </div>
+        <ul class="navbar-nav ms-auto align-items-center">
+                {{-- Katalog --}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('about.index') }}">
+                        <i class="bi bi-info-circle"></i>About
+                    </a>
+                </li>
     
             {{-- Right Menu --}}
             <ul class="navbar-nav ms-auto align-items-center">
                 {{-- Katalog --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('catalog.index') }}">
-                        <i class="bi bi-grid me-1"></i> Katalog
+                        <i class="bi bi-cart"></i> Shop
                     </a>
                 </li>
                 

@@ -55,7 +55,6 @@
         <source src="{{ asset('assets/images/video.mp4') }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-
     <div class="container hero-content">
         <div class="row align-items-center">
             <div class="col-lg-6 text-white"> 
@@ -101,6 +100,11 @@
             </div>
         </div>
     </section>
+<marquee behavior="scroll" direction="left">
+    <h1 class="display-4 fw-bold mb-3 text-black">
+       Tampil Anggun dengan Koleksi Hijab Premium
+    </h1>
+</marquee>
 
     {{-- Produk Unggulan --}}
     <section class="py-5 bg-white border-top border-bottom">
